@@ -5,6 +5,7 @@ import {
   LogoutUser,
   NewPassword,
   ResetPassword,
+  Settings2FACode,
   Verify2FACode,
 } from "./handlers";
 import {
@@ -18,12 +19,14 @@ import {
   TNewPasswordValidationSchema,
   TVerify2FACodeValidationSchema,
   Verify2FACodeValidationSchema,
+  Settings2FACodeValidationSchema,
+  TSettings2FACodeValidationSchema,
 } from "./validator";
 
 const authRoute = (app: Elysia) =>
   app
     //create user
-    .post("/register", ({ body, set }) => CreateUser(body, set), {
+    .post("/register", ({ body }) => CreateUser(body), {
       body: CreateUserValidationSchema as TCreateUserValidationSchema,
     })
     //login user
@@ -53,6 +56,9 @@ const authRoute = (app: Elysia) =>
       {
         body: Verify2FACodeValidationSchema as TVerify2FACodeValidationSchema,
       }
-    );
+    )
+    .post("/2fa-change", ({ body }) => Settings2FACode(body), {
+      body: Settings2FACodeValidationSchema as TSettings2FACodeValidationSchema,
+    });
 
 export default authRoute;

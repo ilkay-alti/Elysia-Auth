@@ -48,3 +48,9 @@ export const Verify2FACodeValidationSchema = t.Object({
 
 export type TVerify2FACodeValidationSchema =
   typeof Verify2FACodeValidationSchema;
+
+export const Settings2FACodeValidationSchema = t.Object({
+  userId: t.String(),
+});
+export type TSettings2FACodeValidationSchema =
+  typeof Settings2FACodeValidationSchema;
