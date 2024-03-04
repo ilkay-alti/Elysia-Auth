@@ -6,10 +6,14 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@elysiajs/cookie": "^0.8.0",
+    "@elysiajs/jwt": "^0.8.0",
+    "@elysiajs/swagger": "^0.8.5",
     "@prisma/client": "5.10.2",
     "elysia": "latest",
     "pino": "^8.19.0",
-    "pino-pretty": "^10.3.1"
+    "pino-pretty": "^10.3.1",
+    "resend": "^3.2.0"
   },
   "devDependencies": {
     "bun-types": "latest",
