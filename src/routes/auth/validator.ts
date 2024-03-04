@@ -39,3 +39,12 @@ export const NewPasswordValidationSchema = t.Object({
 });
 
 export type TNewPasswordValidationSchema = typeof NewPasswordValidationSchema;
+
+export const Verify2FACodeValidationSchema = t.Object({
+  code: t.String({
+    minLength: 6,
+  }),
+});
+
+export type TVerify2FACodeValidationSchema =
+  typeof Verify2FACodeValidationSchema;

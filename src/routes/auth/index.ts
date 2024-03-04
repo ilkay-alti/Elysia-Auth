@@ -5,6 +5,7 @@ import {
   LogoutUser,
   NewPassword,
   ResetPassword,
+  Verify2FACode,
 } from "./handlers";
 import {
   CreateUserValidationSchema,
@@ -15,6 +16,8 @@ import {
   TResetPasswordValidationSchema,
   NewPasswordValidationSchema,
   TNewPasswordValidationSchema,
+  TVerify2FACodeValidationSchema,
+  Verify2FACodeValidationSchema,
 } from "./validator";
 
 const authRoute = (app: Elysia) =>
@@ -38,9 +41,18 @@ const authRoute = (app: Elysia) =>
     .post("/reset-password", ({ body }) => ResetPassword(body), {
       body: ResetPasswordValidationSchema as TResetPasswordValidationSchema,
     })
-    //reset password confirm and change
+    //reset password with token
     .post("/new-password", ({ body }) => NewPassword(body), {
       body: NewPasswordValidationSchema as TNewPasswordValidationSchema,
-    });
+    })
+    // 2FA code verify
+    .post(
+      "/verify-2fa",
+      // @ts-ignore
+      ({ body, jwt, setCookie }) => Verify2FACode(body, jwt, setCookie),
+      {
+        body: Verify2FACodeValidationSchema as TVerify2FACodeValidationSchema,
+      }
+    );
 
 export default authRoute;
