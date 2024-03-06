@@ -6,7 +6,7 @@ import cookie from "@elysiajs/cookie";
 
 import authRoute from "./routes/auth";
 import postRoute from "./routes/post";
-import { isAuthenticated } from "./middleware/isAuthenticated";
+
 const app = new Elysia()
   .use(
     swagger({

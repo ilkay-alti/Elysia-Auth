@@ -10,10 +10,11 @@
     "@elysiajs/jwt": "^0.8.0",
     "@elysiajs/swagger": "^0.8.5",
     "@prisma/client": "5.10.2",
+    "@types/nodemailer": "^6.4.14",
     "elysia": "latest",
+    "nodemailer": "^6.9.11",
     "pino": "^8.19.0",
-    "pino-pretty": "^10.3.1",
-    "resend": "^3.2.0"
+    "pino-pretty": "^10.3.1"
   },
   "devDependencies": {
     "bun-types": "latest",
